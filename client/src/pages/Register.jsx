@@ -98,7 +98,7 @@ function Register() {
                 />
                 <Button fullWidth variant="contained" sx={{ mt: 2 }}
                     type="submit">
-                    Register
+                    SignUp
                 </Button>
             </Box>
             <ToastContainer />
