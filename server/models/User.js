@@ -11,7 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        contactNumber: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
     });
 
     User.associate = (models) => {
