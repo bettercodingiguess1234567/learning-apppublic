@@ -14,6 +14,7 @@ function Register() {
         initialValues: {
             name: "",
             email: "",
+            contactNumber: "",
             password: "",
             confirmPassword: ""
         },
@@ -27,6 +28,9 @@ function Register() {
                 .email('Enter a valid email')
                 .max(50, 'Email must be at most 50 characters')
                 .required('Email is required'),
+            contactNumber: yup.string().trim()
+                .matches(/^[0-9]{8}$/, 'Invalid contact number') // Add validation for a 8-digit number
+                .required('Contact number is required'),
             password: yup.string().trim()
                 .min(8, 'Password must be at least 8 characters')
                 .max(50, 'Password must be at most 50 characters')
@@ -77,7 +81,17 @@ function Register() {
                     onChange={formik.handleChange}
                     error={formik.touched.email && Boolean(formik.errors.email)}
                     helperText={formik.touched.email && formik.errors.email}
+
+                />   <TextField
+                    fullWidth margin="normal" autoComplete="off"
+                    label="Contact Number"       //adding contact number
+                    name="contactNumber"
+                    value={formik.values.contactNumber}  
+                    onChange={formik.handleChange}
+                    error={formik.touched.contactNumber && Boolean(formik.errors.contactNumber)}
+                    helperText={formik.touched.contactNumber && formik.errors.contactNumber}
                 />
+
                 <TextField
                     fullWidth margin="normal" autoComplete="off"
                     label="Password"
